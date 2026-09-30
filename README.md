@@ -4,12 +4,22 @@
 
 Skill pour agent de code (Claude, Codex) qui transforme la description d'un processus en **logigramme ISO 5807** prêt pour un README GitHub : deux SVG jumeaux, clair et sombre, aux couleurs de GitHub, et le snippet Markdown qui les appelle avec un vrai texte alternatif.
 
+## Exemple de rendu
+
+Le processus sur le schéma n'a aucun rapport avec le skill,
+mais le résultat de son test sur un cas métier, le traitement d'une demande d'accès aux données personnelles, pris comme exemple de ce que le skill produit.
+Travaillant actuellement sur le développement d'une webapp de registre des données personnelles pour une TPE du secteur HoReCa, j'ai crée ce skill pour m'aider à comprendre et à transmettre des règles métier.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="exemples/demande-acces-exemple-dark.svg">
   <img alt="Logigramme en neuf étapes. Une demande d'accès arrive par courriel ou formulaire, un dossier est ouvert et horodaté, puis l'identité du demandeur est contrôlée. Si elle n'est pas établie, un justificatif proportionné est demandé et la demande revient au point de réception. Si elle l'est, deux traitements menés en parallèle, l'extraction depuis le registre et l'interrogation des sous-traitants, se rejoignent avant une relecture manuelle qui occulte les données de tiers. La réponse est envoyée avec la copie des données, et la demande est close. Une annotation rappelle le délai d'un mois, prorogeable de deux mois." src="exemples/demande-acces-exemple.svg">
 </picture>
 
-*Tracé depuis [`assets/exemple.logigramme.json`](assets/exemple.logigramme.json). Basculez GitHub en thème sombre : l'image change avec lui.*
+Exemple est choisi pour montrer le travail du skill sur un usecase réel qui réunit en un seul schéma plusieurs éléments : une décision dont une issue revient en arrière, deux traitements menés en parallèle puis rejoints, une annotation, et des états colorés (attention pour le justificatif, succès pour la clôture). Le modèle qui l'a produit, [`assets/exemple.logigramme.json`](assets/exemple.logigramme.json), sert aussi de point de départ à l'agent.
+
+*Basculez GitHub en thème sombre : l'image change avec lui.*
+
+Pour voir le skill décrit par ses propres schémas : [Comment le skill travaille](#comment-le-skill-travaille).
 
 ## Pourquoi ce skill
 
