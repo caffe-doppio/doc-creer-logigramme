@@ -1,6 +1,5 @@
 # doc-creer-logigramme
 
-[![License: MIT](https://shields.io)](LICENSE)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 Skill pour agent de code (Claude, Codex) qui transforme la description d'un processus en **logigramme ISO 5807** prêt pour un README GitHub : deux SVG jumeaux, clair et sombre, aux couleurs de GitHub, et le snippet Markdown qui les appelle avec un vrai texte alternatif.
@@ -160,4 +159,4 @@ python3 scripts/extraire_palette.py --light github-light.css --dark github-dark.
 
 ## Licence
 
-[MIT](LICENSE).
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
