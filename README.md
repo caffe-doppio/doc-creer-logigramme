@@ -1,5 +1,8 @@
 # doc-creer-logigramme
 
+[![License: MIT](https://shields.io)](LICENSE)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
 Skill pour agent de code (Claude, Codex) qui transforme la description d'un processus en **logigramme ISO 5807** prêt pour un README GitHub : deux SVG jumeaux, clair et sombre, aux couleurs de GitHub, et le snippet Markdown qui les appelle avec un vrai texte alternatif.
 
 <picture>
@@ -9,7 +12,7 @@ Skill pour agent de code (Claude, Codex) qui transforme la description d'un proc
 
 *Tracé depuis [`assets/exemple.logigramme.json`](assets/exemple.logigramme.json). Basculez GitHub en thème sombre : l'image change avec lui.*
 
-## Pourquoi
+## Pourquoi ce skill
 
 Un schéma dessiné à la main dans un README vieillit mal : on ne le retouche plus, il ne suit pas le thème sombre, et le lecteur d'écran n'en lit que le titre. Ce skill fait du schéma un **fichier source** :
 
@@ -18,7 +21,9 @@ Un schéma dessiné à la main dans un README vieillit mal : on ne le retouche p
 - un texte alternatif qui décrit le flux, rédigé en même temps que le modèle ;
 - un lint qui mesure le débordement du texte, les liens qui coupent une forme, la parité des deux variantes et les règles ISO 5807.
 
-Python 3.9 ou plus, bibliothèque standard seule. Aucune dépendance à installer.
+> [!TIP]
+> Skill peut être utilisé pour convertir une description d'une logique métier, un croquis, un autre schéma ou le code en flowchart **ISO 5807**, en deux schémas couleur, avec alt texte.
+> Sur GitHub, une autre forge ou dans un progiciel : des schémas claires et standartisées, on en a besoin partout.
 
 ## Installation
 
@@ -31,6 +36,8 @@ git clone <url-du-depot> ~/.claude/skills/doc-creer-logigramme
 ```
 
 Pour un seul projet, cloner dans `.claude/skills/` à la racine du projet. Pour Codex, [`agents/openai.yaml`](agents/openai.yaml) porte le nom d'affichage et autorise l'invocation implicite.
+
+Python 3.9 ou plus, bibliothèque standard seule. Aucune dépendance à installer.
 
 ## Utilisation
 
