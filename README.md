@@ -41,7 +41,7 @@ Cloner le dépôt dans le dossier de skills de l'agent.
 Claude Code, pour tous les projets :
 
 ```bash
-git clone <url-du-depot> ~/.claude/skills/doc-creer-logigramme
+git clone https://github.com/caffe-doppio/doc-creer-logigramme ~/.claude/skills/doc-creer-logigramme
 ```
 
 Pour un seul projet, cloner dans `.claude/skills/` à la racine du projet. Pour Codex, [`agents/openai.yaml`](agents/openai.yaml) porte le nom d'affichage et autorise l'invocation implicite.
