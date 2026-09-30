@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739 1379" width="739" height="1379" role="img" aria-labelledby="titre description" data-logigramme="1" data-variante="dark">
+<title id="titre">Traitement d'une demande d'accès aux données</title>
+<desc id="description">Logigramme en neuf étapes. Une demande d'accès arrive par courriel ou formulaire, un dossier est ouvert et horodaté, puis l'identité du demandeur est contrôlée. Si elle n'est pas établie, un justificatif proportionné est demandé et la demande revient au point de réception. Si elle l'est, deux traitements menés en parallèle, l'extraction depuis le registre et l'interrogation des sous-traitants, se rejoignent avant une relecture manuelle qui occulte les données de tiers. La réponse est envoyée avec la copie des données, et la demande est close. Une annotation rappelle le délai d'un mois, prorogeable de deux mois.</desc>
+<defs>
+<marker id="m-neutre" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9198a1"/></marker>
+</defs>
+<rect width="739" height="1379" fill="#0d1117"/>
+<g class="lien annotation" data-de="delai" data-vers="debut"><path d="M 532 65 L 452 65" stroke="#9198a1" fill="none" stroke-width="1.2" stroke-dasharray="4 3"/></g>
+<g class="lien" data-de="debut" data-vers="recue">
+<path d="M 367 91 L 367 173" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="recue" data-vers="dossier">
+<path d="M 367 237 L 367 311" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="dossier" data-vers="identite">
+<path d="M 367 379 L 367 440" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="identite" data-vers="fourche">
+<path d="M 367 530 L 367 621" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="371" y="538.1" width="20.9" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="373" y="547.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">oui</text>
+</g>
+<g class="lien" data-de="identite" data-vers="justif">
+<path d="M 270 485 L 202 485" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="240.9" y="470.2" width="25.1" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="264" y="480" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#9198a1">non</text>
+</g>
+<g class="lien" data-de="justif" data-vers="recue">
+<path d="M 117 457 L 117 205 L 286 205" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="fourche" data-vers="registre">
+<path d="M 367 629 L 367 729" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="fourche" data-vers="soustraitants">
+<path d="M 617 629 L 617 737" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="registre" data-vers="jointure">
+<path d="M 367 801 L 367 901" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="soustraitants" data-vers="jointure">
+<path d="M 617 793 L 617 901" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="jointure" data-vers="relecture">
+<path d="M 367 909 L 367 1013" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="relecture" data-vers="reponse">
+<path d="M 367 1077 L 367 1154" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="reponse" data-vers="fin">
+<path d="M 367 1209 L 367 1303" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="noeud" data-id="debut" data-forme="terminal" data-x="282" data-y="39" data-w="170" data-h="52">
+<rect x="282" y="39" width="170" height="52" rx="26" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="60.3">Réception d'une</tspan>
+<tspan x="367" y="77.2">demande d'accès</tspan>
+</text>
+</g>
+<g class="noeud" data-id="delai" data-forme="annotation" data-x="532" data-y="32" data-w="170" data-h="66" data-cote="gauche">
+<path d="M 544 32 L 532 32 L 532 98 L 544 98" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#9198a1">
+<tspan x="545" y="51.9">Réponse sous un</tspan>
+<tspan x="545" y="68.8">mois, prorogeable de</tspan>
+<tspan x="545" y="85.7">deux mois</tspan>
+</text>
+</g>
+<g class="noeud" data-id="recue" data-forme="entree-sortie" data-x="277" data-y="173" data-w="180" data-h="64">
+<path d="M 295 173 L 457 173 L 439 237 L 277 237 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="191.9">Demande reçue par</tspan>
+<tspan x="367" y="208.8">courriel ou formulaire</tspan>
+</text>
+</g>
+<g class="noeud" data-id="dossier" data-forme="preparation" data-x="277" data-y="311" data-w="180" data-h="68">
+<path d="M 295 311 L 439 311 L 457 345 L 439 379 L 295 379 L 277 345 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="331.9">Ouverture et</tspan>
+<tspan x="367" y="348.8">horodatage du dossier</tspan>
+</text>
+</g>
+<g class="noeud" data-id="identite" data-forme="decision" data-x="270" data-y="440" data-w="194" data-h="90">
+<path d="M 367 440 L 464 485 L 367 530 L 270 485 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="471.9">Identité</tspan>
+<tspan x="367" y="488.8">du demandeur</tspan>
+<tspan x="367" y="505.7">établie ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="justif" data-forme="traitement" data-x="32" data-y="457" data-w="170" data-h="56">
+<rect x="32" y="457" width="170" height="56" rx="2" fill="#bb8009" fill-opacity="0.149" stroke="#9e6a03" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="117" y="480.3">Demande d'un</tspan>
+<tspan x="117" y="497.2">justificatif proportionné</tspan>
+</text>
+</g>
+<g class="noeud" data-id="fourche" data-forme="parallele" data-x="277" data-y="621" data-w="430" data-h="8">
+<path d="M 277 621 L 707 621 M 277 629 L 707 629" stroke="#656c76" fill="none" stroke-width="1.5"/>
+</g>
+<g class="noeud" data-id="registre" data-forme="base-de-donnees" data-x="292" data-y="729" data-w="150" data-h="72">
+<path d="M 292 739 A 75 10 0 0 1 442 739 L 442 791 A 75 10 0 0 1 292 791 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 292 739 A 75 10 0 0 0 442 739" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="765.3">Extraction depuis le</tspan>
+<tspan x="367" y="782.2">registre</tspan>
+</text>
+</g>
+<g class="noeud" data-id="soustraitants" data-forme="processus-predefini" data-x="527" data-y="737" data-w="180" data-h="56">
+<rect x="527" y="737" width="180" height="56" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 539 737 L 539 793 M 695 737 L 695 793" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="617" y="760.3">Interrogation des</tspan>
+<tspan x="617" y="777.2">sous-traitants</tspan>
+</text>
+</g>
+<g class="noeud" data-id="jointure" data-forme="parallele" data-x="277" data-y="901" data-w="430" data-h="8">
+<path d="M 277 901 L 707 901 M 277 909 L 707 909" stroke="#656c76" fill="none" stroke-width="1.5"/>
+</g>
+<g class="noeud" data-id="relecture" data-forme="operation-manuelle" data-x="277" data-y="1013" data-w="180" data-h="64">
+<path d="M 277 1013 L 457 1013 L 437 1077 L 297 1077 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="1031.9">Relecture et</tspan>
+<tspan x="367" y="1048.8">occultation des</tspan>
+<tspan x="367" y="1065.7">données de tiers</tspan>
+</text>
+</g>
+<g class="noeud" data-id="reponse" data-forme="document" data-x="282" data-y="1154" data-w="170" data-h="62">
+<path d="M 282 1154 L 452 1154 L 452 1209 C 409.5 1195 324.5 1223 282 1209 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="1176.8">Réponse et copie des</tspan>
+<tspan x="367" y="1193.7">données</tspan>
+</text>
+</g>
+<g class="noeud" data-id="fin" data-forme="terminal" data-x="282" data-y="1303" data-w="170" data-h="44">
+<rect x="282" y="1303" width="170" height="44" rx="22" fill="#2ea043" fill-opacity="0.149" stroke="#238636" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="367" y="1328.8">Demande close</tspan>
+</text>
+</g>
+</svg>

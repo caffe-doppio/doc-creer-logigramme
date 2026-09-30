@@ -1,0 +1,30 @@
+{
+  "id": "lecture-source",
+  "titre": "Du processus au modèle",
+  "alt": "Logigramme en dix symboles, premier de deux. Le processus à schématiser arrive sous forme de description, de schéma existant ou de code. Les étapes, les décisions et leurs issues sont relevées. Si la source est illisible ou incomplète, une question est posée à l'humain et le relevé reprend avec sa réponse. Si elle est complète, le nombre de symboles est évalué : au-delà de vingt-cinq, un découpage en plusieurs schémas est proposé avant d'écrire le modèle. Le modèle JSON et son texte alternatif sont écrits, puis un renvoi hors page mène au second schéma, le tracé et la vérification. Une annotation rappelle qu'aucune donnée personnelle réelle n'entre dans un libellé.",
+  "chemin": "exemples",
+  "noeuds": [
+    {"id": "debut", "forme": "terminal", "texte": "Processus à schématiser", "col": 1, "rang": 0},
+    {"id": "source", "forme": "entree-sortie", "texte": "Description, schéma\nou code", "col": 1, "rang": 1},
+    {"id": "releve", "forme": "traitement", "texte": "Relever étapes, décisions et issues", "col": 1, "rang": 2},
+    {"id": "complet", "forme": "decision", "texte": "Source lisible\net complète ?", "col": 1, "rang": 3},
+    {"id": "question", "forme": "operation-manuelle", "texte": "Question posée à l'humain", "col": 0, "rang": 3, "etat": "attention"},
+    {"id": "taille", "forme": "decision", "texte": "Plus de\n25 symboles ?", "col": 1, "rang": 4},
+    {"id": "decoupage", "forme": "traitement", "texte": "Proposer un découpage", "col": 2, "rang": 4, "etat": "accent"},
+    {"id": "modele", "forme": "document", "texte": "Modèle JSON et texte alternatif", "col": 1, "rang": 5},
+    {"id": "rgpd", "forme": "annotation", "texte": "Aucune donnée personnelle réelle dans un libellé", "col": 0, "rang": 5, "cible": "modele"},
+    {"id": "suite", "forme": "renvoi-page", "texte": "2", "col": 1, "rang": 6}
+  ],
+  "liens": [
+    {"de": "debut", "vers": "source"},
+    {"de": "source", "vers": "releve"},
+    {"de": "releve", "vers": "complet"},
+    {"de": "complet", "vers": "question", "sortie": "gauche", "etiquette": "non"},
+    {"de": "question", "vers": "releve", "sortie": "haut", "entree": "gauche"},
+    {"de": "complet", "vers": "taille", "etiquette": "oui"},
+    {"de": "taille", "vers": "decoupage", "sortie": "droite", "etiquette": "oui"},
+    {"de": "decoupage", "vers": "modele", "sortie": "bas", "entree": "droite"},
+    {"de": "taille", "vers": "modele", "etiquette": "non"},
+    {"de": "modele", "vers": "suite"}
+  ]
+}

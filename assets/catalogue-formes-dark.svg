@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1119 443" width="1119" height="443" role="img" aria-labelledby="titre description" data-logigramme="1" data-variante="dark">
+<title id="titre">Catalogue des formes ISO 5807 du skill</title>
+<desc id="description">Planche de quinze symboles de logigramme rangés en trois rangées de cinq. Première rangée : terminal en forme de stade, traitement rectangulaire, décision en losange, entrée ou sortie en parallélogramme, processus prédéfini à doubles bords verticaux. Deuxième rangée : connecteur de page en petit cercle marqué A, renvoi hors page en pentagone marqué B, annotation en crochet ouvert, fichier ou base en cylindre, document à base ondulée. Troisième rangée : documents multiples empilés, opération manuelle en trapèze, saisie manuelle au bord supérieur incliné, préparation en hexagone, mode parallèle en deux traits horizontaux.</desc>
+<defs>
+</defs>
+<rect width="1119" height="443" fill="#0d1117"/>
+<text class="titre" x="32" y="44" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#f0f6fc">Catalogue des formes ISO 5807 du skill</text>
+<g class="lien annotation" data-de="annotation" data-vers="base"><path d="M 642 250 L 702 250" stroke="#9198a1" fill="none" stroke-width="1.2" stroke-dasharray="4 3"/></g>
+<g class="noeud" data-id="terminal" data-forme="terminal" data-x="32" data-y="98" data-w="170" data-h="44">
+<rect x="32" y="98" width="170" height="44" rx="22" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="117" y="123.8">Terminal</tspan>
+</text>
+</g>
+<g class="noeud" data-id="traitement" data-forme="traitement" data-x="252" data-y="92" data-w="170" data-h="56">
+<rect x="252" y="92" width="170" height="56" rx="2" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="337" y="123.8">Traitement</tspan>
+</text>
+</g>
+<g class="noeud" data-id="decision" data-forme="decision" data-x="467" data-y="78" data-w="180" data-h="84">
+<path d="M 557 78 L 647 120 L 557 162 L 467 120 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="557" y="123.8">Décision ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="es" data-forme="entree-sortie" data-x="687" data-y="92" data-w="180" data-h="56">
+<path d="M 705 92 L 867 92 L 849 148 L 687 148 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="777" y="123.8">Entrée / sortie</tspan>
+</text>
+</g>
+<g class="noeud" data-id="pp" data-forme="processus-predefini" data-x="907" data-y="92" data-w="180" data-h="56">
+<rect x="907" y="92" width="180" height="56" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 919 92 L 919 148 M 1075 92 L 1075 148" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="997" y="123.8">Processus prédéfini</tspan>
+</text>
+</g>
+<g class="noeud" data-id="connecteur" data-forme="connecteur" data-x="99" data-y="232" data-w="36" data-h="36">
+<circle cx="117" cy="250" r="18" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="600" fill="#f0f6fc">
+<tspan x="117" y="253.8">A</tspan>
+</text>
+</g>
+<g class="noeud" data-id="renvoi" data-forme="renvoi-page" data-x="315" data-y="228" data-w="44" data-h="44">
+<path d="M 315 228 L 359 228 L 359 254.4 L 337 272 L 315 254.4 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="600" fill="#f0f6fc">
+<tspan x="337" y="247">B</tspan>
+</text>
+</g>
+<g class="noeud" data-id="annotation" data-forme="annotation" data-x="472" data-y="225" data-w="170" data-h="50" data-cote="droite">
+<path d="M 630 225 L 642 225 L 642 275 L 630 275" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#9198a1">
+<tspan x="485" y="245.3">Annotation reliée à la</tspan>
+<tspan x="485" y="262.2">base</tspan>
+</text>
+</g>
+<g class="noeud" data-id="base" data-forme="base-de-donnees" data-x="702" data-y="214" data-w="150" data-h="72">
+<path d="M 702 224 A 75 10 0 0 1 852 224 L 852 276 A 75 10 0 0 1 702 276 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 702 224 A 75 10 0 0 0 852 224" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="777" y="258.8">Fichier ou base</tspan>
+</text>
+</g>
+<g class="noeud" data-id="document" data-forme="document" data-x="912" data-y="219" data-w="170" data-h="62">
+<path d="M 912 219 L 1082 219 L 1082 274 C 1039.5 260 954.5 288 912 274 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="997" y="250.3">Document</tspan>
+</text>
+</g>
+<g class="noeud" data-id="documents" data-forme="documents" data-x="32" data-y="341" data-w="178" data-h="70">
+<path d="M 40 341 L 210 341 L 210 396 C 167.5 382 82.5 410 40 396 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 36 345 L 206 345 L 206 400 C 163.5 386 78.5 414 36 400 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 32 349 L 202 349 L 202 404 C 159.5 390 74.5 418 32 404 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="117" y="380.3">Documents multiples</tspan>
+</text>
+</g>
+<g class="noeud" data-id="om" data-forme="operation-manuelle" data-x="247" data-y="352" data-w="180" data-h="56">
+<path d="M 247 352 L 427 352 L 407 408 L 267 408 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="337" y="383.8">Opération manuelle</tspan>
+</text>
+</g>
+<g class="noeud" data-id="sm" data-forme="saisie-manuelle" data-x="467" data-y="350" data-w="180" data-h="60">
+<path d="M 467 368 L 647 350 L 647 410 L 467 410 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="557" y="383.8">Saisie manuelle</tspan>
+</text>
+</g>
+<g class="noeud" data-id="prep" data-forme="preparation" data-x="687" data-y="354" data-w="180" data-h="52">
+<path d="M 705 354 L 849 354 L 867 380 L 849 406 L 705 406 L 687 380 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="777" y="383.8">Préparation</tspan>
+</text>
+</g>
+<g class="noeud" data-id="parallele" data-forme="parallele" data-x="907" data-y="376" data-w="180" data-h="8">
+<path d="M 907 376 L 1087 376 M 907 384 L 1087 384" stroke="#656c76" fill="none" stroke-width="1.5"/>
+</g>
+</svg>

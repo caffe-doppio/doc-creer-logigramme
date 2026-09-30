@@ -1,0 +1,25 @@
+{
+  "id": "catalogue-formes",
+  "titre": "Catalogue des formes ISO 5807 du skill",
+  "alt": "Planche de quinze symboles de logigramme rangés en trois rangées de cinq. Première rangée : terminal en forme de stade, traitement rectangulaire, décision en losange, entrée ou sortie en parallélogramme, processus prédéfini à doubles bords verticaux. Deuxième rangée : connecteur de page en petit cercle marqué A, renvoi hors page en pentagone marqué B, annotation en crochet ouvert, fichier ou base en cylindre, document à base ondulée. Troisième rangée : documents multiples empilés, opération manuelle en trapèze, saisie manuelle au bord supérieur incliné, préparation en hexagone, mode parallèle en deux traits horizontaux.",
+  "grille": {"colonne": 220, "rangee": 130},
+  "titre_visible": true,
+  "noeuds": [
+    {"id": "terminal", "forme": "terminal", "texte": "Terminal", "col": 0, "rang": 0},
+    {"id": "traitement", "forme": "traitement", "texte": "Traitement", "col": 1, "rang": 0},
+    {"id": "decision", "forme": "decision", "texte": "Décision ?", "col": 2, "rang": 0},
+    {"id": "es", "forme": "entree-sortie", "texte": "Entrée / sortie", "col": 3, "rang": 0},
+    {"id": "pp", "forme": "processus-predefini", "texte": "Processus prédéfini", "col": 4, "rang": 0},
+    {"id": "connecteur", "forme": "connecteur", "texte": "A", "col": 0, "rang": 1},
+    {"id": "renvoi", "forme": "renvoi-page", "texte": "B", "col": 1, "rang": 1},
+    {"id": "annotation", "forme": "annotation", "texte": "Annotation reliée à la base", "col": 2, "rang": 1, "cible": "base"},
+    {"id": "base", "forme": "base-de-donnees", "texte": "Fichier ou base", "col": 3, "rang": 1},
+    {"id": "document", "forme": "document", "texte": "Document", "col": 4, "rang": 1},
+    {"id": "documents", "forme": "documents", "texte": "Documents multiples", "col": 0, "rang": 2},
+    {"id": "om", "forme": "operation-manuelle", "texte": "Opération manuelle", "col": 1, "rang": 2},
+    {"id": "sm", "forme": "saisie-manuelle", "texte": "Saisie manuelle", "col": 2, "rang": 2},
+    {"id": "prep", "forme": "preparation", "texte": "Préparation", "col": 3, "rang": 2},
+    {"id": "parallele", "forme": "parallele", "col": 4, "rang": 2}
+  ],
+  "liens": []
+}

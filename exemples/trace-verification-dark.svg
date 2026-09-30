@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 751 952" width="751" height="952" role="img" aria-labelledby="titre description" data-logigramme="1" data-variante="dark">
+<title id="titre">Tracé, vérification et remise</title>
+<desc id="description">Logigramme en onze symboles, second de deux. Il part du renvoi hors page venu du premier schéma. Le script tracer.py lit le modèle. S'il rend le code 2, modèle invalide ou texte trop long, le modèle est corrigé et retracé. S'il rend le code 3, SVG déjà présents, l'accord de l'humain est demandé avant de remplacer. S'il rend le code 0, le script verifier.py contrôle la paire de SVG et le snippet. En cas d'erreur, si trois essais ont déjà eu lieu sur le même point, le travail s'arrête et la décision revient à l'humain ; sinon le modèle est corrigé et retracé. Sans erreur, la remise liste les fichiers, le snippet et les avertissements maintenus, et le logigramme est remis.</desc>
+<defs>
+<marker id="m-neutre" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9198a1"/></marker>
+</defs>
+<rect width="751" height="952" fill="#0d1117"/>
+<g class="lien" data-de="entree" data-vers="tracer">
+<path d="M 379 76 L 379 166" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="tracer" data-vers="code">
+<path d="M 379 222 L 379 292" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="code" data-vers="corriger">
+<path d="M 289 334 L 214 334" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="274" y="319.2" width="11" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="283" y="329" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#9198a1">2</text>
+</g>
+<g class="lien" data-de="code" data-vers="accord">
+<path d="M 469 334 L 549 334" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="473" y="319.2" width="11" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="475" y="329" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">3</text>
+</g>
+<g class="lien" data-de="code" data-vers="verifier">
+<path d="M 379 376 L 379 446" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="383" y="384.1" width="11" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="385" y="393.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">0</text>
+</g>
+<g class="lien" data-de="corriger" data-vers="tracer">
+<path d="M 129 306 L 129 194 L 289 194" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="accord" data-vers="tracer">
+<path d="M 629 306 L 629 194 L 469 194" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="verifier" data-vers="erreur">
+<path d="M 379 502 L 379 572" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="erreur" data-vers="essais">
+<path d="M 289 614 L 226 614" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="264.1" y="599.2" width="20.9" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="283" y="609" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#9198a1">oui</text>
+</g>
+<g class="lien" data-de="erreur" data-vers="remise">
+<path d="M 379 656 L 379 719" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="383" y="664.1" width="25.1" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="385" y="673.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">non</text>
+</g>
+<g class="lien" data-de="essais" data-vers="corriger">
+<path d="M 129 569 L 129 362" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="133" y="545.2" width="25.1" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="135" y="555" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">non</text>
+</g>
+<g class="lien" data-de="essais" data-vers="arret">
+<path d="M 129 659 L 129 868" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="133" y="667.1" width="20.9" height="13.2" fill="#0d1117"/>
+<text class="etiquette" x="135" y="676.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#9198a1">oui</text>
+</g>
+<g class="lien" data-de="remise" data-vers="fin">
+<path d="M 379 782 L 379 872" stroke="#9198a1" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="noeud" data-id="entree" data-forme="renvoi-page" data-x="357" data-y="32" data-w="44" data-h="44">
+<path d="M 357 32 L 401 32 L 401 58.4 L 379 76 L 357 58.4 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="600" fill="#f0f6fc">
+<tspan x="379" y="51">1</tspan>
+</text>
+</g>
+<g class="noeud" data-id="tracer" data-forme="processus-predefini" data-x="289" data-y="166" data-w="180" data-h="56">
+<rect x="289" y="166" width="180" height="56" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 301 166 L 301 222 M 457 166 L 457 222" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="197.8">tracer.py</tspan>
+</text>
+</g>
+<g class="noeud" data-id="code" data-forme="decision" data-x="289" data-y="292" data-w="180" data-h="84">
+<path d="M 379 292 L 469 334 L 379 376 L 289 334 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="337.8">Code de sortie ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="corriger" data-forme="traitement" data-x="44" data-y="306" data-w="170" data-h="56">
+<rect x="44" y="306" width="170" height="56" rx="2" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="129" y="337.8">Corriger le modèle</tspan>
+</text>
+</g>
+<g class="noeud" data-id="accord" data-forme="operation-manuelle" data-x="539" data-y="306" data-w="180" data-h="56">
+<path d="M 539 306 L 719 306 L 699 362 L 559 362 Z" fill="#bb8009" fill-opacity="0.149" stroke="#9e6a03" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="629" y="329.3">Accord de l'humain</tspan>
+<tspan x="629" y="346.2">pour remplacer</tspan>
+</text>
+</g>
+<g class="noeud" data-id="verifier" data-forme="processus-predefini" data-x="289" data-y="446" data-w="180" data-h="56">
+<rect x="289" y="446" width="180" height="56" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<path d="M 301 446 L 301 502 M 457 446 L 457 502" stroke="#656c76" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="477.8">verifier.py</tspan>
+</text>
+</g>
+<g class="noeud" data-id="erreur" data-forme="decision" data-x="289" data-y="572" data-w="180" data-h="84">
+<path d="M 379 572 L 469 614 L 379 656 L 289 614 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="609.3">Erreur</tspan>
+<tspan x="379" y="626.2">signalée ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="essais" data-forme="decision" data-x="32" data-y="569" data-w="194" data-h="90">
+<path d="M 129 569 L 226 614 L 129 659 L 32 614 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="129" y="609.3">Trois essais</tspan>
+<tspan x="129" y="626.2">sur ce point ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="remise" data-forme="document" data-x="282" data-y="719" data-w="194" data-h="70">
+<path d="M 282 719 L 476 719 L 476 782 C 427.5 768 330.5 796 282 782 Z" fill="#151b23" stroke="#656c76" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="745.8">Remise et avertissements</tspan>
+<tspan x="379" y="762.7">maintenus</tspan>
+</text>
+</g>
+<g class="noeud" data-id="arret" data-forme="terminal" data-x="44" data-y="868" data-w="170" data-h="52">
+<rect x="44" y="868" width="170" height="52" rx="26" fill="#f85149" fill-opacity="0.102" stroke="#da3633" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="129" y="889.3">Arrêt, décision à</tspan>
+<tspan x="129" y="906.2">l'humain</tspan>
+</text>
+</g>
+<g class="noeud" data-id="fin" data-forme="terminal" data-x="294" data-y="872" data-w="170" data-h="44">
+<rect x="294" y="872" width="170" height="44" rx="22" fill="#2ea043" fill-opacity="0.149" stroke="#238636" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f0f6fc">
+<tspan x="379" y="897.8">Logigramme remis</tspan>
+</text>
+</g>
+</svg>

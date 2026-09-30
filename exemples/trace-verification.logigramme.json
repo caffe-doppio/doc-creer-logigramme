@@ -1,0 +1,34 @@
+{
+  "id": "trace-verification",
+  "titre": "Tracé, vérification et remise",
+  "alt": "Logigramme en onze symboles, second de deux. Il part du renvoi hors page venu du premier schéma. Le script tracer.py lit le modèle. S'il rend le code 2, modèle invalide ou texte trop long, le modèle est corrigé et retracé. S'il rend le code 3, SVG déjà présents, l'accord de l'humain est demandé avant de remplacer. S'il rend le code 0, le script verifier.py contrôle la paire de SVG et le snippet. En cas d'erreur, si trois essais ont déjà eu lieu sur le même point, le travail s'arrête et la décision revient à l'humain ; sinon le modèle est corrigé et retracé. Sans erreur, la remise liste les fichiers, le snippet et les avertissements maintenus, et le logigramme est remis.",
+  "chemin": "exemples",
+  "noeuds": [
+    {"id": "entree", "forme": "renvoi-page", "texte": "1", "col": 1, "rang": 0},
+    {"id": "tracer", "forme": "processus-predefini", "texte": "tracer.py", "col": 1, "rang": 1},
+    {"id": "code", "forme": "decision", "texte": "Code de sortie ?", "col": 1, "rang": 2},
+    {"id": "corriger", "forme": "traitement", "texte": "Corriger le modèle", "col": 0, "rang": 2},
+    {"id": "accord", "forme": "operation-manuelle", "texte": "Accord de l'humain pour remplacer", "col": 2, "rang": 2, "etat": "attention"},
+    {"id": "verifier", "forme": "processus-predefini", "texte": "verifier.py", "col": 1, "rang": 3},
+    {"id": "erreur", "forme": "decision", "texte": "Erreur\nsignalée ?", "col": 1, "rang": 4},
+    {"id": "essais", "forme": "decision", "texte": "Trois essais\nsur ce point ?", "col": 0, "rang": 4},
+    {"id": "remise", "forme": "document", "texte": "Remise et avertissements maintenus", "col": 1, "rang": 5},
+    {"id": "arret", "forme": "terminal", "texte": "Arrêt, décision à l'humain", "col": 0, "rang": 6, "etat": "danger"},
+    {"id": "fin", "forme": "terminal", "texte": "Logigramme remis", "col": 1, "rang": 6, "etat": "succes"}
+  ],
+  "liens": [
+    {"de": "entree", "vers": "tracer"},
+    {"de": "tracer", "vers": "code"},
+    {"de": "code", "vers": "corriger", "sortie": "gauche", "etiquette": "2"},
+    {"de": "code", "vers": "accord", "sortie": "droite", "etiquette": "3"},
+    {"de": "code", "vers": "verifier", "etiquette": "0"},
+    {"de": "corriger", "vers": "tracer", "sortie": "haut", "entree": "gauche"},
+    {"de": "accord", "vers": "tracer", "sortie": "haut", "entree": "droite"},
+    {"de": "verifier", "vers": "erreur"},
+    {"de": "erreur", "vers": "essais", "sortie": "gauche", "etiquette": "oui"},
+    {"de": "erreur", "vers": "remise", "etiquette": "non"},
+    {"de": "essais", "vers": "corriger", "sortie": "haut", "entree": "bas", "etiquette": "non"},
+    {"de": "essais", "vers": "arret", "sortie": "bas", "etiquette": "oui"},
+    {"de": "remise", "vers": "fin"}
+  ]
+}

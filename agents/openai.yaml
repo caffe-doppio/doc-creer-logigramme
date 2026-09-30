@@ -1,0 +1,6 @@
+interface:
+  display_name: "Créer un logigramme"
+  short_description: "Logigramme ISO 5807 en SVG light et dark, avec snippet Markdown"
+
+policy:
+  allow_implicit_invocation: true

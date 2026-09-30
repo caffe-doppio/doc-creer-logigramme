@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 739 952" width="739" height="952" role="img" aria-labelledby="titre description" data-logigramme="1" data-variante="light">
+<title id="titre">Du processus au modèle</title>
+<desc id="description">Logigramme en dix symboles, premier de deux. Le processus à schématiser arrive sous forme de description, de schéma existant ou de code. Les étapes, les décisions et leurs issues sont relevées. Si la source est illisible ou incomplète, une question est posée à l'humain et le relevé reprend avec sa réponse. Si elle est complète, le nombre de symboles est évalué : au-delà de vingt-cinq, un découpage en plusieurs schémas est proposé avant d'écrire le modèle. Le modèle JSON et son texte alternatif sont écrits, puis un renvoi hors page mène au second schéma, le tracé et la vérification. Une annotation rappelle qu'aucune donnée personnelle réelle n'entre dans un libellé.</desc>
+<defs>
+<marker id="m-neutre" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#59636e"/></marker>
+</defs>
+<rect width="739" height="952" fill="#ffffff"/>
+<g class="lien annotation" data-de="rgpd" data-vers="modele"><path d="M 207 758 L 287 758" stroke="#59636e" fill="none" stroke-width="1.2" stroke-dasharray="4 3"/></g>
+<g class="lien" data-de="debut" data-vers="source">
+<path d="M 372 84 L 372 170" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="source" data-vers="releve">
+<path d="M 372 226 L 372 310" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="releve" data-vers="complet">
+<path d="M 372 366 L 372 433" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="complet" data-vers="question">
+<path d="M 275 478 L 202 478" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="245.9" y="463.2" width="25.1" height="13.2" fill="#ffffff"/>
+<text class="etiquette" x="269" y="473" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="end" fill="#59636e">non</text>
+</g>
+<g class="lien" data-de="question" data-vers="releve">
+<path d="M 122 450 L 122 338 L 287 338" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="complet" data-vers="taille">
+<path d="M 372 523 L 372 573" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="376" y="531.1" width="20.9" height="13.2" fill="#ffffff"/>
+<text class="etiquette" x="378" y="540.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#59636e">oui</text>
+</g>
+<g class="lien" data-de="taille" data-vers="decoupage">
+<path d="M 469 618 L 537 618" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="473" y="603.2" width="20.9" height="13.2" fill="#ffffff"/>
+<text class="etiquette" x="475" y="613" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#59636e">oui</text>
+</g>
+<g class="lien" data-de="decoupage" data-vers="modele">
+<path d="M 622 646 L 622 758 L 457 758" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="lien" data-de="taille" data-vers="modele">
+<path d="M 372 663 L 372 727" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+<rect x="376" y="671.1" width="25.1" height="13.2" fill="#ffffff"/>
+<text class="etiquette" x="378" y="680.9" font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="11" text-anchor="start" fill="#59636e">non</text>
+</g>
+<g class="lien" data-de="modele" data-vers="suite">
+<path d="M 372 782 L 372 876" stroke="#59636e" fill="none" stroke-width="1.5" marker-end="url(#m-neutre)"/>
+</g>
+<g class="noeud" data-id="debut" data-forme="terminal" data-x="287" data-y="32" data-w="170" data-h="52">
+<rect x="287" y="32" width="170" height="52" rx="26" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="53.3">Processus à</tspan>
+<tspan x="372" y="70.2">schématiser</tspan>
+</text>
+</g>
+<g class="noeud" data-id="source" data-forme="entree-sortie" data-x="282" data-y="170" data-w="180" data-h="56">
+<path d="M 300 170 L 462 170 L 444 226 L 282 226 Z" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="193.3">Description, schéma</tspan>
+<tspan x="372" y="210.2">ou code</tspan>
+</text>
+</g>
+<g class="noeud" data-id="releve" data-forme="traitement" data-x="287" data-y="310" data-w="170" data-h="56">
+<rect x="287" y="310" width="170" height="56" rx="2" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="333.3">Relever étapes,</tspan>
+<tspan x="372" y="350.2">décisions et issues</tspan>
+</text>
+</g>
+<g class="noeud" data-id="complet" data-forme="decision" data-x="275" data-y="433" data-w="194" data-h="90">
+<path d="M 372 433 L 469 478 L 372 523 L 275 478 Z" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="473.3">Source lisible</tspan>
+<tspan x="372" y="490.2">et complète ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="question" data-forme="operation-manuelle" data-x="32" data-y="450" data-w="180" data-h="56">
+<path d="M 32 450 L 212 450 L 192 506 L 52 506 Z" fill="#fff8c5" stroke="#9a6700" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="122" y="473.3">Question posée à</tspan>
+<tspan x="122" y="490.2">l'humain</tspan>
+</text>
+</g>
+<g class="noeud" data-id="taille" data-forme="decision" data-x="275" data-y="573" data-w="194" data-h="90">
+<path d="M 372 573 L 469 618 L 372 663 L 275 618 Z" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="604.9">Plus de</tspan>
+<tspan x="372" y="621.8">25 symboles ?</tspan>
+</text>
+</g>
+<g class="noeud" data-id="decoupage" data-forme="traitement" data-x="537" data-y="590" data-w="170" data-h="56">
+<rect x="537" y="590" width="170" height="56" rx="2" fill="#ddf4ff" stroke="#0969da" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="622" y="613.3">Proposer un</tspan>
+<tspan x="622" y="630.2">découpage</tspan>
+</text>
+</g>
+<g class="noeud" data-id="modele" data-forme="document" data-x="287" data-y="727" data-w="170" data-h="62">
+<path d="M 287 727 L 457 727 L 457 782 C 414.5 768 329.5 796 287 782 Z" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#1f2328">
+<tspan x="372" y="749.8">Modèle JSON et texte</tspan>
+<tspan x="372" y="766.7">alternatif</tspan>
+</text>
+</g>
+<g class="noeud" data-id="rgpd" data-forme="annotation" data-x="37" data-y="725" data-w="170" data-h="66" data-cote="droite">
+<path d="M 195 725 L 207 725 L 207 791 L 195 791" stroke="#818b98" fill="none" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" fill="#59636e">
+<tspan x="50" y="744.9">Aucune donnée</tspan>
+<tspan x="50" y="761.8">personnelle réelle</tspan>
+<tspan x="50" y="778.7">dans un libellé</tspan>
+</text>
+</g>
+<g class="noeud" data-id="suite" data-forme="renvoi-page" data-x="350" data-y="876" data-w="44" data-h="44">
+<path d="M 350 876 L 394 876 L 394 902.4 L 372 920 L 350 902.4 Z" fill="#f6f8fa" stroke="#818b98" stroke-width="1.5"/>
+<text font-family="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, &quot;Noto Sans&quot;, Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="600" fill="#1f2328">
+<tspan x="372" y="895">2</tspan>
+</text>
+</g>
+</svg>

@@ -1,0 +1,37 @@
+{
+  "id": "demande-acces-exemple",
+  "titre": "Traitement d'une demande d'accès aux données",
+  "alt": "Logigramme en neuf étapes. Une demande d'accès arrive par courriel ou formulaire, un dossier est ouvert et horodaté, puis l'identité du demandeur est contrôlée. Si elle n'est pas établie, un justificatif proportionné est demandé et la demande revient au point de réception. Si elle l'est, deux traitements menés en parallèle, l'extraction depuis le registre et l'interrogation des sous-traitants, se rejoignent avant une relecture manuelle qui occulte les données de tiers. La réponse est envoyée avec la copie des données, et la demande est close. Une annotation rappelle le délai d'un mois, prorogeable de deux mois.",
+  "chemin": "assets",
+  "titre_visible": false,
+  "noeuds": [
+    {"id": "debut", "forme": "terminal", "texte": "Réception d'une demande d'accès", "col": 1, "rang": 0},
+    {"id": "delai", "forme": "annotation", "texte": "Réponse sous un mois, prorogeable de deux mois", "col": 2, "rang": 0, "cible": "debut"},
+    {"id": "recue", "forme": "entree-sortie", "texte": "Demande reçue par courriel ou formulaire", "col": 1, "rang": 1},
+    {"id": "dossier", "forme": "preparation", "texte": "Ouverture et horodatage du dossier", "col": 1, "rang": 2},
+    {"id": "identite", "forme": "decision", "texte": "Identité du demandeur établie ?", "col": 1, "rang": 3},
+    {"id": "justif", "forme": "traitement", "texte": "Demande d'un justificatif proportionné", "col": 0, "rang": 3, "etat": "attention"},
+    {"id": "fourche", "forme": "parallele", "col": 1, "rang": 4, "cols": 2},
+    {"id": "registre", "forme": "base-de-donnees", "texte": "Extraction depuis le registre", "col": 1, "rang": 5},
+    {"id": "soustraitants", "forme": "processus-predefini", "texte": "Interrogation des sous-traitants", "col": 2, "rang": 5},
+    {"id": "jointure", "forme": "parallele", "col": 1, "rang": 6, "cols": 2},
+    {"id": "relecture", "forme": "operation-manuelle", "texte": "Relecture et occultation des données de tiers", "col": 1, "rang": 7},
+    {"id": "reponse", "forme": "document", "texte": "Réponse et copie des données", "col": 1, "rang": 8},
+    {"id": "fin", "forme": "terminal", "texte": "Demande close", "col": 1, "rang": 9, "etat": "succes"}
+  ],
+  "liens": [
+    {"de": "debut", "vers": "recue"},
+    {"de": "recue", "vers": "dossier"},
+    {"de": "dossier", "vers": "identite"},
+    {"de": "identite", "vers": "fourche", "etiquette": "oui"},
+    {"de": "identite", "vers": "justif", "sortie": "gauche", "etiquette": "non"},
+    {"de": "justif", "vers": "recue", "sortie": "haut", "entree": "gauche"},
+    {"de": "fourche", "vers": "registre"},
+    {"de": "fourche", "vers": "soustraitants"},
+    {"de": "registre", "vers": "jointure"},
+    {"de": "soustraitants", "vers": "jointure"},
+    {"de": "jointure", "vers": "relecture"},
+    {"de": "relecture", "vers": "reponse"},
+    {"de": "reponse", "vers": "fin"}
+  ]
+}
