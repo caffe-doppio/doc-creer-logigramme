@@ -30,6 +30,7 @@ TALON = 18.0
 DEPORT_COULOIR = 26.0
 PAS_COULOIR = 16.0
 ENTETE = 46.0
+ENTETE_COULOIR = 30.0
 ID_FICHIER = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 ID_NOEUD = re.compile(r"^[A-Za-z0-9_-]+$")
 
@@ -82,6 +83,35 @@ def valider(m):
     if not isinstance(m.get("liens", []), list):
         m = dict(m, liens=[])
 
+    couloirs = m.get("couloirs")
+    plages = {}
+    if couloirs is not None:
+        if not isinstance(couloirs, list) or not couloirs:
+            err.append("couloirs : liste non vide, ou champ absent")
+            couloirs = []
+        debut = 0
+        for i, k in enumerate(couloirs):
+            ref = "couloirs[%d]" % i
+            if not isinstance(k, dict) or not isinstance(k.get("id"), str) \
+                    or not ID_NOEUD.match(k["id"]):
+                err.append("%s : id obligatoire (lettres, chiffres, _ et -)"
+                           % ref)
+                continue
+            ref = "couloir %s" % k["id"]
+            if k["id"] in plages:
+                err.append("%s : id en double" % ref)
+            titre = k.get("titre")
+            if not isinstance(titre, str) or not titre.strip() \
+                    or "\n" in titre:
+                err.append("%s : titre obligatoire, sur une ligne" % ref)
+            n_cols = k.get("cols", 1)
+            if not isinstance(n_cols, int) or isinstance(n_cols, bool) \
+                    or n_cols < 1:
+                err.append("%s : cols entier au moins égal à 1" % ref)
+                n_cols = 1
+            plages[k["id"]] = (debut, debut + n_cols - 1)
+            debut += n_cols
+
     ids, cellules = {}, {}
     for i, n in enumerate(m["noeuds"]):
         ref = "noeuds[%d]" % i
@@ -119,6 +149,20 @@ def valider(m):
                                      or largeur < 1):
             err.append("%s : cols entier au moins égal à 1" % ref)
             largeur = 1
+        if couloirs is not None or "couloir" in n:
+            k = n.get("couloir")
+            if couloirs is None:
+                err.append("%s : couloir %r, mais le modèle ne déclare aucun "
+                           "couloir" % (ref, k))
+            elif not isinstance(k, str) or k not in plages:
+                err.append("%s : couloir obligatoire, id d'un couloir déclaré "
+                           "(%r reçu ; l'entier de décalage est le couloir "
+                           "d'un lien)" % (ref, k))
+            elif not (plages[k][0] <= col
+                      and col + largeur - 1 <= plages[k][1]):
+                err.append("%s : colonne %d hors du couloir %s, qui couvre "
+                           "les colonnes %d à %d"
+                           % (ref, col, k, plages[k][0], plages[k][1]))
         for k in range(largeur):
             cle = (col + k, rang)
             if cle in cellules:
@@ -554,7 +598,31 @@ def dessiner_forme(n, pal):
     return out
 
 
-def emettre(modele, noeuds, liens, annots, largeur, hauteur, pal, variante):
+def dessiner_couloir(k, pal):
+    trait = attrs_couleur("stroke", pal["forme-trait"])
+    base = (k["y"] + ENTETE_COULOIR / 2
+            + (c.MONTANTE - c.DESCENDANTE) / 2 * c.TAILLE_TEXTE)
+    return [
+        '<g class="couloir" data-id="%s" data-x="%s" data-y="%s" data-w="%s" '
+        'data-h="%s" data-entete="%s">'
+        % (echapper(k["id"]), fmt(k["x"]), fmt(k["y"]), fmt(k["w"]),
+           fmt(k["h"]), fmt(ENTETE_COULOIR)),
+        '<rect x="%s" y="%s" width="%s" height="%s" fill="none" %s '
+        'stroke-width="1"/>' % (fmt(k["x"]), fmt(k["y"]), fmt(k["w"]),
+                                fmt(k["h"]), trait),
+        '<rect x="%s" y="%s" width="%s" height="%s" %s %s stroke-width="1"/>'
+        % (fmt(k["x"]), fmt(k["y"]), fmt(k["w"]), fmt(ENTETE_COULOIR),
+           attrs_couleur("fill", pal["forme-fond"]), trait),
+        '<text class="titre-couloir" x="%s" y="%s" font-family="%s" '
+        'font-size="%s" font-weight="600" text-anchor="middle" %s>%s</text>'
+        % (fmt(k["x"] + k["w"] / 2), fmt(base), echapper(c.POLICE),
+           fmt(c.TAILLE_TEXTE), attrs_couleur("fill", pal["texte"]),
+           echapper(k["titre"])),
+        '</g>']
+
+
+def emettre(modele, noeuds, liens, annots, largeur, hauteur, pal, variante,
+            couloirs=()):
     titre = modele["titre"].strip()
     desc = (modele.get("description") or modele["alt"]).strip()
     L = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -584,6 +652,8 @@ def emettre(modele, noeuds, liens, annots, largeur, hauteur, pal, variante):
                  % (fmt(MARGE), fmt(MARGE + c.TAILLE_TITRE * c.MONTANTE),
                     police, fmt(c.TAILLE_TITRE),
                     attrs_couleur("fill", pal["texte"]), echapper(titre)))
+    for k in couloirs:
+        L += dessiner_couloir(k, pal)
 
     for a in annots:
         coul = pal["texte-discret"]
@@ -623,6 +693,8 @@ def emettre(modele, noeuds, liens, annots, largeur, hauteur, pal, variante):
                     fmt(n.h)))
         if n.cote:
             attrs += ' data-cote="%s"' % n.cote
+        if "couloir" in n.d:
+            attrs += ' data-couloir="%s"' % echapper(n.d["couloir"])
         L.append('<g %s>' % attrs)
         L += dessiner_forme(n, pal)
         if n.lignes:
@@ -717,6 +789,28 @@ def tracer(modele, palette):
             b = c.boite_glyphes(ex, ey, ew, c.TAILLE_ETIQUETTE, ancre)
             xs += [b[0] - 2, b[2] + 2]
             ys += [b[1] - 1, b[3] + 1]
+    couloirs, debut = [], 0
+    for k in modele.get("couloirs", []):
+        n_cols = k.get("cols", 1)
+        couloirs.append({"id": k["id"], "titre": k["titre"].strip(),
+                         "x": debut * cw, "w": n_cols * cw})
+        debut += n_cols
+        if c.largeur_texte(couloirs[-1]["titre"], c.TAILLE_TEXTE, True) \
+                > n_cols * cw - 2 * c.MARGE_TRACE:
+            erreurs.append("couloir %s : titre trop long pour sa largeur. Le "
+                           "raccourcir, ou augmenter cols ou grille.colonne."
+                           % k["id"])
+    if erreurs:
+        raise ModeleInvalide(erreurs)
+    if couloirs:
+        # L'en-tête se pose au-dessus de tout le contenu : aucun lien ni
+        # symbole ne peut le recouvrir.
+        haut = min(ys + [0.0]) - ENTETE_COULOIR
+        bas = max(ys + [(max(rang.values()) + 1) * rh])
+        for k in couloirs:
+            k["y"], k["h"] = haut, bas - haut
+            xs += [k["x"], k["x"] + k["w"]]
+            ys += [k["y"], k["y"] + k["h"]]
     entete = ENTETE if modele.get("titre_visible") else 0.0
     dx = MARGE - min(xs)
     dy = MARGE + entete - min(ys)
@@ -728,6 +822,9 @@ def tracer(modele, palette):
                                         True)))
     for n in noeuds:
         n.decaler(dx, dy)
+    for k in couloirs:
+        k["x"] += dx
+        k["y"] += dy
     for l in liens + annots:
         l["pts"] = [(x + dx, y + dy) for x, y in l["pts"]]
         if l.get("etiq_pos"):
@@ -738,7 +835,7 @@ def tracer(modele, palette):
     for variante in ("light", "dark"):
         pal = c.couleurs_variante(palette, variante)
         sorties[variante] = emettre(modele, noeuds, liens, annots, largeur,
-                                    hauteur, pal, variante)
+                                    hauteur, pal, variante, couloirs)
     return sorties
 
 

@@ -8,7 +8,9 @@ Pour chaque schéma, les deux jumeaux nom.svg et nom-dark.svg sont vérifiés
 ensemble, quel que soit celui qui est nommé : présence, accessibilité,
 appartenance des couleurs à la palette de la variante, parité de contenu.
 Pour un SVG produit par tracer.py, s'ajoutent le débordement du texte hors
-de sa forme, les liens qui traversent une forme, et les règles ISO 5807.
+de sa forme, les liens qui traversent une forme, les règles ISO 5807 et,
+si le schéma a des couloirs, l'appartenance des nœuds et la lisibilité des
+en-têtes.
 
 Usage :
     python scripts/verifier.py SCHEMA.svg [...] [--md FICHIER.md ...]
@@ -195,11 +197,40 @@ def chemin_points(d):
 def verifier_geometrie(racine, ou, rap):
     vb = [float(v) for v in (racine.get("viewBox") or "0 0 0 0").split()]
     cadre = (vb[0], vb[1], vb[0] + vb[2], vb[1] + vb[3])
-    noeuds, liens = {}, []
+    noeuds, liens, couloirs = {}, [], {}
 
     for g in racine.iter(NS + "g"):
         classes = (g.get("class") or "").split()
-        if "noeud" in classes:
+        if "couloir" in classes:
+            kid = g.get("data-id")
+            dims = [nombre(g, a) for a in ("data-x", "data-y", "data-w",
+                                           "data-h", "data-entete")]
+            if None in dims:
+                rap.erreur(ou, "couloir %s : data-x, data-y, data-w, data-h "
+                           "ou data-entete manquant" % kid)
+                continue
+            x, y, w, h, e = dims
+            titre = g.find(NS + "text")
+            contenu = "".join(titre.itertext()).strip() \
+                if titre is not None else ""
+            boite = None
+            if contenu:
+                taille = nombre(titre, "font-size", c.TAILLE_TEXTE)
+                boite = c.boite_glyphes(
+                    nombre(titre, "x", 0.0), nombre(titre, "y", 0.0),
+                    c.largeur_texte(contenu, taille,
+                                    titre.get("font-weight") in
+                                    ("600", "700", "bold")),
+                    taille, titre.get("text-anchor", "start"))
+            couloirs[kid] = {"boite": (x, y, x + w, y + h), "corps": y + e,
+                             "titre": contenu, "boite_titre": boite}
+            if boite is None:
+                rap.erreur(ou, "couloir %s : en-tête sans titre" % kid)
+            elif not c.boite_dans_zone(c._rect(x, y, w, e), boite,
+                                       c.MARGE_LINT):
+                rap.erreur(ou, "couloir %s : le titre « %s » déborde de son "
+                           "en-tête" % (kid, contenu))
+        elif "noeud" in classes:
             nid, forme = g.get("data-id"), g.get("data-forme")
             if forme not in c.FORMES:
                 rap.erreur(ou, "nœud %s : forme %r hors vocabulaire ISO 5807 "
@@ -212,7 +243,7 @@ def verifier_geometrie(racine, ou, rap):
                            "manquant" % nid)
                 continue
             noeuds[nid] = {"forme": forme, "boite": (x, y, x + w, y + h),
-                           "texte": ""}
+                           "texte": "", "couloir": g.get("data-couloir")}
             if (x < cadre[0] or y < cadre[1] or x + w > cadre[2]
                     or y + h > cadre[3]):
                 rap.erreur(ou, "nœud %s : forme hors du cadre du SVG" % nid)
@@ -279,8 +310,46 @@ def verifier_geometrie(racine, ou, rap):
                     or b[3] > cadre[3]):
                 rap.erreur(ou, "étiquette « %s » hors du cadre" % contenu)
 
+    if couloirs:
+        verifier_couloirs(couloirs, noeuds, liens, ou, rap)
     verifier_iso(noeuds, [l for l in liens if not l["annotation"]],
                  [l for l in liens if l["annotation"]], ou, rap)
+
+
+def verifier_couloirs(couloirs, noeuds, liens, ou, rap):
+    peuples = set()
+    for nid, n in noeuds.items():
+        kid = n["couloir"]
+        if kid is None:
+            rap.erreur(ou, "nœud %s : sans couloir, alors que le schéma en "
+                       "déclare" % nid)
+            continue
+        if kid not in couloirs:
+            rap.erreur(ou, "nœud %s : couloir %s non déclaré" % (nid, kid))
+            continue
+        peuples.add(kid)
+        x0, y0, x1, y1 = n["boite"]
+        k = couloirs[kid]
+        if (x0 < k["boite"][0] - 0.5 or x1 > k["boite"][2] + 0.5
+                or y0 < k["corps"] - 0.5 or y1 > k["boite"][3] + 0.5):
+            rap.erreur(ou, "nœud %s : hors de son couloir %s" % (nid, kid))
+    for kid, k in couloirs.items():
+        if kid not in peuples:
+            rap.avert(ou, "couloir %s : déclaré sans nœud" % kid)
+        b = k["boite_titre"]
+        if b is None:
+            continue
+        for nid, n in noeuds.items():
+            if c.boites_se_chevauchent(b, n["boite"]):
+                rap.erreur(ou, "couloir %s : le nœud %s recouvre le titre de "
+                           "l'en-tête" % (kid, nid))
+        for l in liens:
+            coupe = any(c.segment_coupe_boite(a, z, b)
+                        for seg in l["segments"] for a, z in zip(seg, seg[1:]))
+            if coupe or any(c.boites_se_chevauchent(b, eb)
+                            for _, eb in l["etiquettes"]):
+                rap.erreur(ou, "couloir %s : le lien %s → %s recouvre le titre "
+                           "de l'en-tête" % (kid, l["de"], l["vers"]))
 
 
 def verifier_iso(noeuds, liens, annots, ou, rap):

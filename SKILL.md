@@ -48,6 +48,8 @@ Au-delà de vingt-cinq symboles, proposer un découpage en plusieurs logigrammes
 
 Format : [`references/modele.md`](references/modele.md). Formes et règles d'emploi : [`references/iso-5807.md`](references/iso-5807.md). Point de départ : [`assets/exemple.logigramme.json`](assets/exemple.logigramme.json).
 
+Si la source attribue chaque étape à un acteur, un service ou une couche, et que cette attribution est le propos du schéma, la porter par des couloirs, pas par des parenthèses dans les libellés. Les couloirs ne sont pas dans ISO 5807 : [`references/iso-5807.md`](references/iso-5807.md#couloirs).
+
 Le modèle se pose à côté des SVG, sous le nom `{id}.logigramme.json`, pour que le schéma puisse être retracé par une autre session.
 
 Règles de libellé :

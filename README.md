@@ -139,6 +139,17 @@ Chaque symbole occupe une cellule d'une grille, repérée par colonne et rang. L
 
 Format complet : [`references/modele.md`](references/modele.md). Rédaction du texte alternatif et du snippet : [`references/alt.md`](references/alt.md).
 
+### Couloirs
+
+Quand chaque étape revient à un acteur ou à une couche, le modèle déclare des couloirs verticaux et chaque symbole nomme le sien : l'acteur sort des libellés. Les couloirs ne sont pas dans ISO 5807, c'est une convention du skill.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="exemples/violation-donnees-dark.svg">
+  <img alt="Logigramme en dix symboles, répartis en trois couloirs verticaux : la personne qui constate, le DPO, le responsable du traitement. La personne qui constate un incident le signale au DPO. Le DPO qualifie l'incident : si ce n'est pas une violation de données, l'incident est classé. Si c'en est une, le DPO l'inscrit au registre des violations, puis évalue le risque pour les personnes. Sans risque, le dossier est clos. Avec un risque, le responsable du traitement notifie la CNIL, puis le dossier est clos. Une annotation rappelle que la notification se fait sous 72 heures après la prise de connaissance." src="exemples/violation-donnees.svg">
+</picture>
+
+Modèle : [`exemples/violation-donnees.logigramme.json`](exemples/violation-donnees.logigramme.json). Champs : [`references/modele.md`](references/modele.md#couloirs). Règles d'emploi : [`references/iso-5807.md`](references/iso-5807.md#couloirs).
+
 ## Palette
 
 [`assets/palette.json`](assets/palette.json) contient les jetons de couleur des thèmes clair et sombre de GitHub (Primer, jetons `--bgColor-*`, `--fgColor-*`, `--borderColor-*`). Le lint refuse toute couleur qui n'est la valeur d'aucun jeton de la variante. Pour la régénérer depuis des feuilles plus récentes :

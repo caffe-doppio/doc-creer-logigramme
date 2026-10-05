@@ -19,6 +19,11 @@ Chaque correction se fait **dans le modèle**, suivie d'un nouveau tracé. Un SV
 | alt identique au titre | `alt` nomme au lieu de décrire | le réécrire, voir [`alt.md`](alt.md) |
 | source dark absente, srcset inattendu | snippet modifié à la main | recoller le snippet affiché par le traceur |
 | fichier introuvable depuis le Markdown | `--chemin` faux | retracer avec le chemin vu depuis le fichier Markdown |
+| nœud … hors de son couloir … | nœud déplacé dans le SVG | retracer ; le traceur refuse un nœud placé hors de son couloir |
+| nœud … sans couloir, ou couloir … non déclaré | SVG retouché | retracer depuis le modèle |
+| couloir … : le titre « … » déborde de son en-tête | titre modifié dans le SVG | retracer ; raccourcir `titre`, ou augmenter `cols` ou `grille.colonne` |
+| couloir … : le nœud ou le lien … recouvre le titre | SVG retouché ; le traceur pose l'en-tête au-dessus de tout | retracer |
+| couloir … : en-tête sans titre | SVG retouché | retracer |
 
 ## Avertissements
 
@@ -37,6 +42,7 @@ Chaque correction se fait **dans le modèle**, suivie d'un nouveau tracé. Un SV
 | annotation reliée à aucun symbole | `cible` absente | renseigner `cible` |
 | nœud isolé | symbole sans lien | le relier, ou le retirer |
 | alt de moins de 60 caractères | description probablement absente | vérifier qu'il décrit le flux |
+| couloir … : déclaré sans nœud | couloir prévu puis vidé | le retirer de `couloirs`, ou y placer les symboles qui lui reviennent |
 
 ## Informations
 

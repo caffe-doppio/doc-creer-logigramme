@@ -1,0 +1,34 @@
+{
+  "id": "violation-donnees",
+  "titre": "Traitement d'un incident de sécurité, en trois couloirs",
+  "alt": "Logigramme en dix symboles, répartis en trois couloirs verticaux : la personne qui constate, le DPO, le responsable du traitement. La personne qui constate un incident le signale au DPO. Le DPO qualifie l'incident : si ce n'est pas une violation de données, l'incident est classé. Si c'en est une, le DPO l'inscrit au registre des violations, puis évalue le risque pour les personnes. Sans risque, le dossier est clos. Avec un risque, le responsable du traitement notifie la CNIL, puis le dossier est clos. Une annotation rappelle que la notification se fait sous 72 heures après la prise de connaissance.",
+  "chemin": "exemples",
+  "couloirs": [
+    {"id": "agent", "titre": "Personne qui constate"},
+    {"id": "dpo", "titre": "DPO", "cols": 2},
+    {"id": "responsable", "titre": "Responsable du traitement", "cols": 2}
+  ],
+  "noeuds": [
+    {"id": "debut", "forme": "terminal", "texte": "Incident constaté", "col": 0, "rang": 0, "couloir": "agent"},
+    {"id": "signal", "forme": "entree-sortie", "texte": "Signalement au DPO", "col": 0, "rang": 1, "couloir": "agent"},
+    {"id": "qualif", "forme": "traitement", "texte": "Qualification de l'incident", "col": 1, "rang": 2, "couloir": "dpo"},
+    {"id": "violation", "forme": "decision", "texte": "Violation de données ?", "col": 1, "rang": 3, "couloir": "dpo"},
+    {"id": "classe", "forme": "terminal", "texte": "Incident classé", "col": 2, "rang": 3, "couloir": "dpo"},
+    {"id": "registre", "forme": "base-de-donnees", "texte": "Inscription au registre des violations", "col": 1, "rang": 4, "couloir": "dpo"},
+    {"id": "risque", "forme": "decision", "texte": "Risque pour les personnes ?", "col": 1, "rang": 5, "couloir": "dpo"},
+    {"id": "notif", "forme": "entree-sortie", "texte": "Notification à la CNIL", "col": 3, "rang": 5, "couloir": "responsable", "etat": "attention"},
+    {"id": "delai", "forme": "annotation", "texte": "Sous 72 h après la prise de connaissance", "col": 4, "rang": 5, "couloir": "responsable", "cible": "notif"},
+    {"id": "fin", "forme": "terminal", "texte": "Dossier clos", "col": 1, "rang": 6, "couloir": "dpo", "etat": "succes"}
+  ],
+  "liens": [
+    {"de": "debut", "vers": "signal"},
+    {"de": "signal", "vers": "qualif"},
+    {"de": "qualif", "vers": "violation"},
+    {"de": "violation", "vers": "classe", "etiquette": "non"},
+    {"de": "violation", "vers": "registre", "etiquette": "oui"},
+    {"de": "registre", "vers": "risque"},
+    {"de": "risque", "vers": "notif", "etiquette": "oui", "etat": "attention"},
+    {"de": "risque", "vers": "fin", "etiquette": "non"},
+    {"de": "notif", "vers": "fin", "entree": "droite"}
+  ]
+}
